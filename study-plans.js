@@ -15,8 +15,6 @@ btn.className = 'pick-card';
 btn.dataset.m = m;
 btn.innerHTML = '<span>' + MAJORS[m].icon + '</span><b>' + MAJORS[m].name + '</b>';
 
-
-JavaScript
 btn.addEventListener('click', function () {
   current = m;
   render();
@@ -33,8 +31,6 @@ $all('.pick-card', tabs).forEach(function (btn) {
 btn.classList.toggle('selected', btn.dataset.m === current);
 });
 
-
-JavaScript
 var term = $('#courseSearch').value.trim().toLowerCase();
 
 var mine = courses.filter(function (c) {
@@ -47,9 +43,10 @@ $('#planSummary').textContent =
 var html = '';
 var found = 0;
 
-// Display courses level by levelfor (var level = 1; level <= 10; level++) {
+// Display courses level by level
+for (var level = 1; level <= 10; level++) {
   var list = mine.filter(function (c) {
-    return c.level == level &&
+    return Number(c.level) === level &&
       (!term || (c.name + ' ' + c.code).toLowerCase().includes(term));
   });
 
@@ -71,8 +68,7 @@ $('#planLevels').innerHTML = found || !term
 
 // Course card design
 function card(c) {
-return '<div class="course-card" style="border-top-color:' +
-MAJORS[c.major].color + '">' +
+return '<div class="course-card" style="border-top-color:' + MAJORS[c.major].color + '">' +
 '<span class="code">' + c.code + '</span>' +
 '<h4>' + c.name + '</h4>' +
 (c.name_ar ? '<p class="course-ar">' + c.name_ar + '</p>' : '') +
@@ -95,5 +91,4 @@ render();
 $('#planLevels').innerHTML =
 '<p class="warn">Could not load courses. Please check the PHP server.</p>';
 });
-
 });
