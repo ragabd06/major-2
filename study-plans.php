@@ -2,7 +2,7 @@
 $page_title = 'Study Plans';
 $active = 'plans';
 $scripts = ['study-plans.js'];
-include 'php/header.php';
+include 'header.php';
 ?>
 
 <section class="page-head">
