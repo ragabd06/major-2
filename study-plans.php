@@ -37,4 +37,4 @@ include 'header.php';
   </div>
 </section>
 
-<?php include 'php/footer.php'; ?>
+<?php include 'footer.php'; ?>
